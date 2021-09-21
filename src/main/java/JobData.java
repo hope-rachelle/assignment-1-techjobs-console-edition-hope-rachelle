@@ -99,10 +99,10 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            String aValue = row.toString().toLowerCase();
-            if (!jobs.contains(row)){
-                if (aValue.toLowerCase().contains(value.toLowerCase())) {
+            for (Map.Entry<String, String> listOfJobs : row.entrySet()){
+                if (listOfJobs.getValue().toLowerCase().contains(value.toLowerCase())) {
                     jobs.add(row);
+                    break;
                 }
             }
         }
